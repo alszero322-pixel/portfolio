@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCNA クイズ</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .container {
+    background: #1e293b;
+    border-radius: 16px;
+    padding: 36px;
+    max-width: 640px;
+    width: 100%;
+    border: 1px solid #334155;
+  }
+
+  h1 {
+    text-align: center;
+    color: #3b82f6;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-bottom: 28px;
+  }
+
+  .progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .progress-text { color: #64748b; font-size: 0.85rem; }
+
+  .progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #334155;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: #3b82f6;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+  }
+
+  .question {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    color: #f1f5f9;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 12px; }
+
+  .option {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    text-align: left;
+  }
+
+  .option:hover:not(:disabled) {
+    border-color: #3b82f6;
+    color: #fff;
+  }
+
+  .option.correct {
+    background: #1e3a2f;
+    border-color: #34d399;
+    color: #6ee7b7;
+  }
+
+  .option.wrong {
+    background: #3b1a1a;
+    border-color: #f87171;
+    color: #fca5a5;
+  }
+
+  .option:disabled { cursor: default; }
+
+  .feedback {
+    margin-top: 20px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    display: none;
+  }
+
+  .feedback.correct {
+    background: #1e3a2f;
+    border: 1px solid #34d399;
+    color: #6ee7b7;
+    display: block;
+  }
+
+  .feedback.wrong {
+    background: #3b1a1a;
+    border: 1px solid #f87171;
+    color: #fca5a5;
+    display: block;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+    padding: 14px;
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn:hover { background: #2563eb; }
+  .btn:disabled { background: #334155; cursor: default; }
+
+  /* スコア画面 */
+  .score-screen { text-align: center; display: none; }
+  .score-screen.show { display: block; }
+  .score-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #0f172a;
+    border: 4px solid #3b82f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+  }
+  .score-number { font-size: 2.2rem; font-weight: bold; color: #3b82f6; }
+  .score-label { font-size: 0.75rem; color: #64748b; }
+  .score-message { font-size: 1.1rem; margin-bottom: 8px; color: #f1f5f9; }
+  .score-sub { color: #64748b; font-size: 0.9rem; margin-bottom: 28px; }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #64748b;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: #3b82f6; }
+
+  .quiz-screen { display: block; }
+  .quiz-screen.hide { display: none; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- クイズ画面 -->
+  <div class="quiz-screen" id="quizScreen">
+    <h1>🌐 CCNA クイズ</h1>
+    <p class="subtitle">ネットワーク基礎 5問チャレンジ</p>
+
+    <div class="progress">
+      <span class="progress-text" id="progressText">問題 1 / 5</span>
+      <span class="progress-text" id="scoreText">正解 0問</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <div class="feedback" id="feedback"></div>
+    <button class="btn" id="nextBtn" disabled onclick="nextQuestion()">次の問題へ →</button>
+  </div>
+
+  <!-- スコア画面 -->
+  <div class="score-screen" id="scoreScreen">
+    <h1>🎉 結果発表</h1>
+    <br>
+    <div class="score-circle">
+      <span class="score-number" id="finalScore">0</span>
+      <span class="score-label">/ 5問</span>
+    </div>
+    <p class="score-message" id="scoreMessage"></p>
+    <p class="score-sub" id="scoreSub"></p>
+    <button class="btn" onclick="restartQuiz()">🔄 もう一度挑戦</button>
+    <br>
+    <a href="../index.html" class="back-link">← ポートフォリオに戻る</a>
+  </div>
+
+</div>
+
+<script>
+const questions = [
+  {
+    q: "OSI参照モデルの第3層（ネットワーク層）のプロトコルはどれですか？",
+    options: ["TCP", "IP", "Ethernet", "HTTP"],
+    answer: 1,
+    explanation: "IPはネットワーク層（第3層）のプロトコルです。TCPはトランスポート層（第4層）、EthernetはデータリンクとPhysical層、HTTPはアプリケーション層（第7層）です。"
+  },
+  {
+    q: "192.168.1.0/24 のサブネットマスクはどれですか？",
+    options: ["255.255.0.0", "255.0.0.0", "255.255.255.0", "255.255.255.128"],
+    answer: 2,
+    explanation: "/24はサブネットマスクの先頭から24ビットが1であることを意味します。これは255.255.255.0に相当します。"
+  },
+  {
+    q: "スイッチはOSI参照モデルの何層で動作しますか？",
+    options: ["第1層（物理層）", "第2層（データリンク層）", "第3層（ネットワーク層）", "第4層（トランスポート層）"],
+    answer: 1,
+    explanation: "スイッチはMACアドレスを使って通信するため、第2層（データリンク層）で動作します。ルーターは第3層（ネットワーク層）で動作します。"
+  },
+  {
+    q: "デフォルトゲートウェイの役割として正しいものはどれですか？",
+    options: [
+      "同一ネットワーク内の通信を高速化する",
+      "異なるネットワーク間のパケットを転送する",
+      "MACアドレスをIPアドレスに変換する",
+      "ドメイン名をIPアドレスに変換する"
+    ],
+    answer: 1,
+    explanation: "デフォルトゲートウェイは異なるネットワーク間のパケットを転送するルーターのことです。同一ネットワーク外への通信はすべてここを経由します。"
+  },
+  {
+    q: "VLANの説明として正しいものはどれですか？",
+    options: [
+      "物理的に離れたスイッチを1台に見せる技術",
+      "1台の物理スイッチを論理的に複数のネットワークに分割する技術",
+      "通信を暗号化してセキュリティを高める技術",
+      "IPアドレスを自動割り当てする技術"
+    ],
+    answer: 1,
+    explanation: "VLANは1台の物理スイッチを論理的に複数のネットワークに分割する技術です。セキュリティ向上やブロードキャストドメインの分割に使われます。"
+  }
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function loadQuestion() {
+  const q = questions[current];
+  document.getElementById('question').textContent = q.q;
+  document.getElementById('progressText').textContent = `問題 ${current + 1} / 5`;
+  document.getElementById('scoreText').textContent = `正解 ${score}問`;
+  document.getElementById('progressFill').style.width = `${(current / 5) * 100}%`;
+  document.getElementById('feedback').className = 'feedback';
+  document.getElementById('feedback').textContent = '';
+  document.getElementById('nextBtn').disabled = true;
+  answered = false;
+
+  const opts = document.getElementById('options');
+  opts.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option';
+    btn.textContent = opt;
+    btn.onclick = () => selectAnswer(i);
+    opts.appendChild(btn);
+  });
+}
+
+function selectAnswer(i) {
+  if (answered) return;
+  answered = true;
+
+  const q = questions[current];
+  const btns = document.querySelectorAll('.option');
+  btns.forEach(b => b.disabled = true);
+
+  const fb = document.getElementById('feedback');
+  if (i === q.answer) {
+    btns[i].classList.add('correct');
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ 正解！ ' + q.explanation;
+    score++;
+  } else {
+    btns[i].classList.add('wrong');
+    btns[q.answer].classList.add('correct');
+    fb.className = 'feedback wrong';
+    fb.textContent = '❌ 不正解。 ' + q.explanation;
+  }
+
+  document.getElementById('scoreText').textContent = `正解 ${score}問`;
+  const nextBtn = document.getElementById('nextBtn');
+  nextBtn.disabled = false;
+  nextBtn.textContent = current === 4 ? '結果を見る 🎉' : '次の問題へ →';
+}
+
+function nextQuestion() {
+  current++;
+  if (current >= 5) {
+    showScore();
+  } else {
+    loadQuestion();
+  }
+}
+
+function showScore() {
+  document.getElementById('quizScreen').classList.add('hide');
+  const ss = document.getElementById('scoreScreen');
+  ss.classList.add('show');
+  document.getElementById('finalScore').textContent = score;
+  document.getElementById('progressFill').style.width = '100%';
+
+  const msgs = [
+    ['😢 もう一度復習しよう', '基礎からじっくり取り組みましょう！'],
+    ['🤔 もう少し！', '苦手な部分を重点的に復習しよう'],
+    ['😊 なかなか良い！', '引き続き勉強を続けよう'],
+    ['👍 よくできました！', 'この調子で問題数を増やしていこう'],
+    ['🏆 満点！完璧です！', 'CCNA合格に向けて順調です！']
+  ];
+
+  const idx = score <= 1 ? 0 : score === 2 ? 1 : score === 3 ? 2 : score === 4 ? 3 : 4;
+  document.getElementById('scoreMessage').textContent = msgs[idx][0];
+  document.getElementById('scoreSub').textContent = msgs[idx][1];
+}
+
+function restartQuiz() {
+  current = 0;
+  score = 0;
+  document.getElementById('scoreScreen').classList.remove('show');
+  document.getElementById('quizScreen').classList.remove('hide');
+  loadQuestion();
+}
+
+loadQuestion();
+</script>
+</body>
+</html>
