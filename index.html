@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Network Engineer</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; }
+
+  /* ヘッダー */
+  header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 2px solid #3b82f6;
+  }
+  header h1 { font-size: 2.2rem; color: #fff; margin-bottom: 8px; }
+  header p.role { color: #3b82f6; font-size: 1.1rem; font-weight: bold; margin-bottom: 12px; }
+  header p.tagline { color: #94a3b8; font-size: 0.95rem; max-width: 500px; margin: 0 auto; }
+
+  /* ナビ */
+  nav {
+    background: #1e293b;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #334155;
+  }
+  nav a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+  nav a:hover { color: #3b82f6; }
+
+  /* セクション共通 */
+  section { max-width: 800px; margin: 50px auto; padding: 0 20px; }
+  section h2 {
+    font-size: 1.3rem;
+    color: #3b82f6;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #334155;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* About */
+  .about-card {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 24px;
+    line-height: 1.8;
+    color: #cbd5e1;
+    border: 1px solid #334155;
+  }
+
+  /* スキル */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .skill-card {
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 18px;
+    border: 1px solid #334155;
+  }
+  .skill-card h3 { font-size: 0.85rem; color: #64748b; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .badge {
+    display: inline-block;
+    background: #1d4ed8;
+    color: #bfdbfe;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    margin: 4px 4px 4px 0;
+  }
+  .badge.plan { background: #1e3a2f; color: #6ee7b7; border: 1px dashed #34d399; }
+
+  /* ロードマップ */
+  .roadmap { display: flex; flex-direction: column; gap: 16px; }
+  .road-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 18px;
+    border: 1px solid #334155;
+  }
+  .road-dot {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: bold;
+    flex-shrink: 0;
+  }
+  .done { background: #1d4ed8; color: #fff; }
+  .wip  { background: #92400e; color: #fde68a; }
+  .future { background: #1e3a2f; color: #6ee7b7; border: 1px dashed #34d399; }
+  .road-item div p { font-size: 0.9rem; color: #94a3b8; margin-top: 4px; }
+
+  /* コンタクト */
+  .contact-card {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #334155;
+    text-align: center;
+  }
+  .contact-card p { color: #94a3b8; margin-bottom: 18px; font-size: 0.95rem; }
+  .btn {
+    display: inline-block;
+    background: #3b82f6;
+    color: #fff;
+    padding: 10px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin: 6px;
+    transition: background 0.2s;
+  }
+  .btn:hover { background: #2563eb; }
+  .btn.ghost {
+    background: transparent;
+    border: 1px solid #3b82f6;
+    color: #3b82f6;
+  }
+  .btn.ghost:hover { background: #1e3a5f; }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: #475569;
+    font-size: 0.8rem;
+    border-top: 1px solid #1e293b;
+    margin-top: 60px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>あなたの名前</h1>
+  <p class="role">Network Engineer / インフラエンジニア</p>
+  <p class="tagline">CCNAを軸に、クラウド・Linux領域へ拡張中。<br>インフラ全般を担えるエンジニアを目指しています。</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">スキル</a>
+  <a href="#roadmap">ロードマップ</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- About -->
+<section id="about">
+  <h2>👤 About</h2>
+  <div class="about-card">
+    <p>
+      現在ネットワークエンジニアとして勤務しており、CCNAを取得しています。<br><br>
+      ルーティング・スイッチングの基礎から実務での経験を積みながら、
+      今後はLinux（LPIC）・クラウド（AWS）・より高度なネットワーク技術（CCNP）を習得し、
+      <strong>インフラ全般を一手に担えるエンジニア</strong>として成長していくことを目標としています。<br><br>
+      目標年収：<strong style="color:#3b82f6">600万円</strong>（現在300万円 → 2〜3年以内に倍増を目指す）
+    </p>
+  </div>
+</section>
+
+<!-- スキル -->
+<section id="skills">
+  <h2>🛠 スキル・資格</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>✅ 取得済み</h3>
+      <span class="badge">CCNA</span>
+      <span class="badge">TCP/IP</span>
+      <span class="badge">ルーティング</span>
+      <span class="badge">スイッチング</span>
+      <span class="badge">VLAN</span>
+    </div>
+    <div class="skill-card">
+      <h3>🎯 取得予定（2〜3年以内）</h3>
+      <span class="badge plan">LPIC-1</span>
+      <span class="badge plan">LPIC-2</span>
+      <span class="badge plan">CCNP</span>
+      <span class="badge plan">AWS SAA</span>
+    </div>
+    <div class="skill-card">
+      <h3>💼 実務経験</h3>
+      <span class="badge">ネットワーク構築</span>
+      <span class="badge">障害対応</span>
+      <span class="badge">設定変更</span>
+    </div>
+    <div class="skill-card">
+      <h3>🔧 ツール・環境</h3>
+      <span class="badge">Cisco IOS</span>
+      <span class="badge">Wireshark</span>
+      <span class="badge">Linux（学習中）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ロードマップ -->
+<section id="roadmap">
+  <h2>🗺 キャリアロードマップ</h2>
+  <div class="roadmap">
+    <div class="road-item">
+      <div class="road-dot done">✓</div>
+      <div>
+        <strong>フェーズ1：ネットワーク基礎（現在）</strong>
+        <p>CCNA取得・実務経験スタート・ルーティング/スイッチング習得</p>
+      </div>
+    </div>
+    <div class="road-item">
+      <div class="road-dot wip">進</div>
+      <div>
+        <strong>フェーズ2：Linux習得（〜1年後）</strong>
+        <p>LPIC-1 / LPIC-2 取得・サーバー構築・シェルスクリプト</p>
+      </div>
+    </div>
+    <div class="road-item">
+      <div class="road-dot future">予</div>
+      <div>
+        <strong>フェーズ3：クラウド＆上位ネットワーク（〜2〜3年後）</strong>
+        <p>CCNP取得・AWS SAA取得・クラウドインフラ設計へ</p>
+      </div>
+    </div>
+    <div class="road-item">
+      <div class="road-dot future">🎯</div>
+      <div>
+        <strong>フェーズ4：目標（年収600万）</strong>
+        <p>インフラ全般担当・上流設計への参画・ハイブリッドクラウド環境対応</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>📬 Contact</h2>
+  <div class="contact-card">
+    <p>ご連絡・ご質問はこちらからどうぞ。<br>GitHubでは学習記録も公開しています。</p>
+    <a href="mailto:your@email.com" class="btn">✉ メールを送る</a>
+    <a href="https://github.com/" class="btn ghost">GitHub を見る</a>
+  </div>
+</section>
+
+<footer>
+  © 2025 あなたの名前 — Network Engineer Portfolio v1.0
+</footer>
+
+</body>
+</html>
