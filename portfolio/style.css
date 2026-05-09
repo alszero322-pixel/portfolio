@@ -1,6 +1,11 @@
 *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box; /* すべての要素のボックスサイズをborder-boxに設定 */
+    margin: 0; /* すべての要素のマージンを0にリセット */
+    padding: 0; /* すべての要素のパディングを0にリセット */
 }
 
+body {
+    font-family: 'Noto Sans JP', sans-serif; /* フォントファミリーをNoto Sans JPに設定 */
+    background: #0d0d0f; /* 背景色を#0d0d0fに設定 */
+    color: white; /* 文字色を白に設定 */
+}
