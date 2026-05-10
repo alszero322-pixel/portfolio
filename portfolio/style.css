@@ -61,5 +61,127 @@ body {
 .hero-name {
     font-size: 48px; /* ヒーローセクションの名前のフォントサイズを48pxに設定 */
     font-weight: bold; /* ヒーローセクションの名前のフォントを太字に設定 */
-    margin-bottom: 16px; /* ヒーローセクションの名前の下に16pxの余白を追加 */
+    margin-bottom: 2px; /* ヒーローセクションの名前の下に16pxの余白を追加 */
 }
+
+.hero-tag {
+    display: inline-block;
+    font-size: 12px; /* ヒーローセクションのタグのフォントサイズを11pxに設定 */
+    background: rgba(60, 158, 83, 0.308) ; /* ヒーローセクションのタグの背景色をrgba(60, 158, 83, 0.308)に設定 */
+    color: rgba(60, 158, 83, 1.0); /* ヒーローセクションのタグの文字色をrgba(60, 158, 83, 1.0)に設定 */
+    border: 1px solid rgba(60, 158, 83, 0.55) ; /* ヒーローセクションのタグの境界線をrgba(60, 158, 83, 0.55)に設定 */
+    border-radius: 18px; /* ヒーローセクションのタグの角を丸くする */
+    padding: 4px 12px; /* ヒーローセクションのタグの内側の余白を4px 12pxに設定 */
+    margin-bottom: 20px; /* ヒーローセクションのタグの下に20pxの余白を追加 */   
+    transition: border 0.3s; /* ヒーローセクションのタグの境界線の変化に0.3秒のトランジションを追加 */
+}
+
+.hero-tag:hover {
+    border: 1px solid rgba(60, 158, 83, 1.0) ; /* ヒーローセクションのタグにホバーしたときの境界線をrgba(60, 158, 83, 1.0)に設定 */
+}
+
+.hero-text {
+    margin-bottom: 20px; /* ヒーローセクションのテキストの下に20pxの余白を追加 */
+}
+
+/*３つまとめてはsubs、学習中など一つはsub、それがsubtitleとitemsにわかれてる*/
+
+.hero-subs {
+    display: flex;  /* フレックスボックスを使用してヒーローセクションのサブテキストを配置 */
+    flex-wrap: wrap; /* ヒーローセクションのサブテキストが必要に応じて折り返すように設定 */
+    justify-content: space-around; /* ヒーローセクションのサブテキストの要素を左右に配置 */
+    
+}
+
+.hero-sub {
+    display: flex; /* フレックスボックスを使用してヒーローセクションのサブテキストを配置 */
+    margin-bottom: 8px; /* ヒーローセクションのサブテキストの下に8pxの余白を追加 */
+    flex-direction: column; /* ヒーローセクションのサブテキストを縦に配置 */
+    flex-wrap: wrap; /* ヒーローセクションのサブテキストが必要に応じて折り返すように設定 */
+    justify-content: space-between; /* ヒーローセクションのサブテキストの要素を左右に配置 */
+    align-items: center; /* ヒーローセクションのサブテキストの要素を垂直方向に中央揃え */
+    gap: 20px; /* ヒーローセクションのサブテキストの要素の間隔を20pxに設定 */
+}
+
+.hero-sub1{
+    border: 3px solid rgb(255, 237, 40);
+    padding: 4px 36px 16px; /* ヒーローセクションのサブテキストの内側の余白を4px 12px 8pxに設定 */
+    border-radius: 16px; /* ヒーローセクションのサブテキストの角を丸くする */
+    transition: border 0.3s, box-shadow 0.3s, background 0.3s; /* ヒーローセクションのサブテキストの境界線、影、背景の変化に0.3秒のトランジションを追加 */
+}
+
+.hero-sub1:hover{
+    border: 3px solid rgb(255, 237, 40); /* ヒーローセクションのサブテキストにホバーしたときの境界線をrgb(255, 237, 40)に設定 */
+    box-shadow:
+        0 0 10px rgb(255, 237, 0.5),
+        0 0 15px rgb(255, 237, 40, 0.2),
+        0 0 35px rgb(255, 237, 40, 0.1); /* ヒーローセクションのサブテキストにホバーしたときの影をrgb(255, 237, 40)に設定 */
+    background: rgb(255, 237, 40, 0.1);
+}
+
+.hero-sub2{
+    border: 3px solid rgb(255, 143, 24);
+    padding: 4px 36px 16px; /* ヒーローセクションのサブテキストの内側の余白を4px 12px 8pxに設定 */
+    border-radius: 16px; /* ヒーローセクションのサブテキストの角を丸くする */
+    transition: border 0.3s, box-shadow 0.3s, background 0.3s; /* ヒーローセクションのサブテキストの境界線、影、背景の変化に0.3秒のトランジションを追加 */
+}
+
+.hero-sub2:hover{
+    border: 3px solid rgb(255, 143, 24); /* ヒーローセクションのサブテキストにホバーしたときの境界線をrgb(255, 143, 24)に設定 */
+    box-shadow:
+        0 0 10px rgb(255, 143, 24, 0.5),
+        0 0 15px rgb(255, 143, 24, 0.2),
+        0 0 35px rgb(255, 143, 24, 0.1); /* ヒーローセクションのサブテキストにホバーしたときの影をrgb(255, 143, 24)に設定 */
+    background: rgb(255, 143, 24, 0.1); 
+}
+    
+.hero-sub3{
+    border: 3px solid rgb(255, 80, 80);
+    padding: 4px 36px 16px; /* ヒーローセクションのサブテキストの内側の余白を4px 12px 8pxに設定 */
+    border-radius: 16px; /* ヒーローセクションのサブテキストの角を丸くする */
+    transition: border 0.3s, box-shadow 0.3s, background 0.3s; /* ヒーローセクションのサブテキストの境界線、影、背景の変化に0.3秒のトランジションを追加 */
+}
+
+.hero-sub3:hover{
+    border: 3px solid rgb(255, 80, 80); /* ヒーローセクションのサブテキストにホバーしたときの境界線をrgb(255, 80, 80)に設定 */
+    box-shadow:
+        0 0 10px rgb(255, 80, 80, 0.5),
+        0 0 15px rgb(255, 80, 80, 0.2),
+        0 0 35px rgb(255, 80, 80, 0.1); /* ヒーローセクションのサブテキストにホバーしたときの影をrgb(255, 80, 80)に設定 */
+    background: rgb(255, 80, 80, 0.1); 
+}   
+
+.hero-subtitle{
+    margin-bottom: 12px; /* ヒーローセクションのサブタイトルの下に12pxの余白を追加 */
+    align-items: center; /* ヒーローセクションのサブタイトルの要素を垂直方向に中央揃え */
+    text-align: center; /* ヒーローセクションのサブタイトルのテキストを中央揃え */
+
+}
+
+.hero-items1 {
+    display: flex; /* フレックスボックスを使用してヒーローセクションのアイテムを配置 */
+    gap: 12px; /* ヒーローセクションのアイテムの間隔を12pxに設定 */
+    flex-wrap: wrap; /* ヒーローセクションのアイテムが必要に応じて折り返すように設定 */
+    gap: 12px; /* ヒーローセクションのアイテムの間隔を12pxに設定 */
+    justify-content: space-between; /* ヒーローセクションのアイテムを中央に配置 */
+    color: rgb(255, 237, 40);
+}
+
+.hero-items2 {
+    display: flex; /* フレックスボックスを使用してヒーローセクションのアイテムを配置 */
+    gap: 12px; /* ヒーローセクションのアイテムの間隔を12pxに設定 */
+    flex-wrap: wrap; /* ヒーローセクションのアイテムが必要に応じて折り返すように設定 */
+    gap: 12px; /* ヒーローセクションのアイテムの間隔を12pxに設定 */
+    justify-content: space-between; /* ヒーローセクションのアイテムを中央に配置 */
+    color:rgb(255, 143, 24)
+}
+
+.hero-items3 {
+    display: flex; /* フレックスボックスを使用してヒーローセクションのアイテムを配置 */
+    gap: 12px; /* ヒーローセクションのアイテムの間隔を12pxに設定 */
+    flex-wrap: wrap; /* ヒーローセクションのアイテムが必要に応じて折り返すように設定 */
+    gap: 12px; /* ヒーローセクションのアイテムの間隔を12pxに設定 */
+    justify-content: space-between; /* ヒーローセクションのアイテムを中央に配置 */
+    color: rgb(255, 80, 80); /* ヒーローセクションのアイテムの文字色をrgb(255, 80, 80)に設定 */
+}   
+
