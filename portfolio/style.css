@@ -5,7 +5,51 @@
 }
 
 body {
-    font-family: 'Noto Sans JP', sans-serif; /* フォントファミリーをNoto Sans JPに設定 */
+    font-family: 'Noto Sans JP', sans-serif; /* フォントをNoto Sans JPに設定 */
     background: #0d0d0f; /* 背景色を#0d0d0fに設定 */
     color: white; /* 文字色を白に設定 */
 }
+
+.navbar {
+    display: flex; /* フレックスボックスを使用してナビゲーションバーを配置 */
+    justify-content: space-between; /* ナビゲーションバーの要素を左右に配置 */
+    align-items: center; /* ナビゲーションバーの要素を垂直方向に中央揃え */
+    padding: 24px 40px; /* ナビゲーションバーの内側の余白を24pxに設定 */
+    border-bottom: 2px solid rgba(115, 104, 198, 0.336); /* ナビゲーションバーの下に薄い線を追加 */
+}
+
+.nav-logo{
+    font-size: 15px; /* ロゴのフォントサイズを15pxに設定 */
+    font-weight: bold; /* ロゴのフォントを太字に設定 */
+    color: rgba(115, 104, 198, 1.0); /* ロゴの文字色をrgba(115, 104, 198, 1.0)に設定 */
+    text-shadow: 
+        0 0 8px rgba(115, 104, 198, 0.8), /* ロゴに薄い影を追加 */
+        0 0 2px rgba(115, 104, 198, 0.5), /* ロゴにさらに薄い影を追加 */
+        0 0 35px rgba(115, 104, 198, 0.3); /* ロゴにさらに薄い影を追加 */
+}
+
+.nav-links {
+    display: flex; /* フレックスボックスを使用してナビゲーションリンクを配置 */
+    gap: 72px; /* ナビゲーションリンクの間隔を36pxに設定 */
+    list-style: none; /* ナビゲーションリンクのリストスタイルをなしに設定 */    
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.6); /* ナビゲーションリンクの文字色をrgba(255, 255, 255, 0.6)に設定 */
+    text-decoration: none; /* ナビゲーションリンクのテキスト装飾をなしに設定 */
+    font-size: 13px; /* ナビゲーションリンクのフォントサイズを13pxに設定 */ 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* ナビゲーションリンクの下に透明な線を追加 */
+    padding: 2px; /* ナビゲーションリンクの内側の余白を2pxに設定 */
+    transition: color 0.3s, border-bottom-color 0.3s; /* ナビゲーションリンクの文字色と下の線の色の変化に0.3秒のトランジションを追加 */ 
+
+}
+
+.nav-links a:hover {
+    color: rgba(115, 104, 198, 0.8); /* ナビゲーションリンクにホバーしたときの文字色をrgba(115, 104, 198, 0.8)に設定 */
+    border-bottom: 1px solid rgba(115, 104, 198, 0.8); /* ナビゲーションリンクにホバーしたときの下の線の色をrgba(115, 104, 198, 0.8)に設定 */
+    text-shadow: 
+        0 0 8px rgba(115, 104, 198, 0.8), /* ロゴに薄い影を追加 */
+        0 0 2px rgba(115, 104, 198, 0.5), /* ロゴにさらに薄い影を追加 */
+        0 0 35px rgba(115, 104, 198, 0.3); /* ロゴにさらに薄い影を追加 */
+}
+
