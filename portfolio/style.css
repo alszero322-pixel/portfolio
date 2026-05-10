@@ -105,51 +105,51 @@ body {
 }
 
 .hero-sub1{
-    border: 3px solid rgb(255, 237, 40);
+    border: 3px solid rgba(255, 237, 40);
     padding: 4px 36px 16px; /* ヒーローセクションのサブテキストの内側の余白を4px 12px 8pxに設定 */
     border-radius: 16px; /* ヒーローセクションのサブテキストの角を丸くする */
     transition: border 0.3s, box-shadow 0.3s, background 0.3s; /* ヒーローセクションのサブテキストの境界線、影、背景の変化に0.3秒のトランジションを追加 */
 }
 
 .hero-sub1:hover{
-    border: 3px solid rgb(255, 237, 40); /* ヒーローセクションのサブテキストにホバーしたときの境界線をrgb(255, 237, 40)に設定 */
+    border: 3px solid rgba(255, 237, 40); /* ヒーローセクションのサブテキストにホバーしたときの境界線をrgb(255, 237, 40)に設定 */
     box-shadow:
-        0 0 10px rgb(255, 237, 0.5),
-        0 0 15px rgb(255, 237, 40, 0.2),
-        0 0 35px rgb(255, 237, 40, 0.1); /* ヒーローセクションのサブテキストにホバーしたときの影をrgb(255, 237, 40)に設定 */
-    background: rgb(255, 237, 40, 0.1);
+        0 0 10px rgba(255, 237, 0.5),
+        0 0 15px rgba(255, 237, 40, 0.2),
+        0 0 35px rgba(255, 237, 40, 0.1); /* ヒーローセクションのサブテキストにホバーしたときの影をrgb(255, 237, 40)に設定 */
+    background: rgba(255, 237, 40, 0.1);
 }
 
 .hero-sub2{
-    border: 3px solid rgb(255, 143, 24);
+    border: 3px solid rgba(255, 143, 24);
     padding: 4px 36px 16px; /* ヒーローセクションのサブテキストの内側の余白を4px 12px 8pxに設定 */
     border-radius: 16px; /* ヒーローセクションのサブテキストの角を丸くする */
     transition: border 0.3s, box-shadow 0.3s, background 0.3s; /* ヒーローセクションのサブテキストの境界線、影、背景の変化に0.3秒のトランジションを追加 */
 }
 
 .hero-sub2:hover{
-    border: 3px solid rgb(255, 143, 24); /* ヒーローセクションのサブテキストにホバーしたときの境界線をrgb(255, 143, 24)に設定 */
+    border: 3px solid rgba(255, 143, 24); /* ヒーローセクションのサブテキストにホバーしたときの境界線をrgb(255, 143, 24)に設定 */
     box-shadow:
-        0 0 10px rgb(255, 143, 24, 0.5),
-        0 0 15px rgb(255, 143, 24, 0.2),
-        0 0 35px rgb(255, 143, 24, 0.1); /* ヒーローセクションのサブテキストにホバーしたときの影をrgb(255, 143, 24)に設定 */
-    background: rgb(255, 143, 24, 0.1); 
+        0 0 10px rgba(255, 143, 24, 0.5),
+        0 0 15px rgba(255, 143, 24, 0.2),
+        0 0 35px rgba(255, 143, 24, 0.1); /* ヒーローセクションのサブテキストにホバーしたときの影をrgb(255, 143, 24)に設定 */
+    background: rgba(255, 143, 24, 0.1); 
 }
     
 .hero-sub3{
-    border: 3px solid rgb(255, 80, 80);
+    border: 3px solid rgba(255, 80, 80);
     padding: 4px 36px 16px; /* ヒーローセクションのサブテキストの内側の余白を4px 12px 8pxに設定 */
     border-radius: 16px; /* ヒーローセクションのサブテキストの角を丸くする */
     transition: border 0.3s, box-shadow 0.3s, background 0.3s; /* ヒーローセクションのサブテキストの境界線、影、背景の変化に0.3秒のトランジションを追加 */
 }
 
 .hero-sub3:hover{
-    border: 3px solid rgb(255, 80, 80); /* ヒーローセクションのサブテキストにホバーしたときの境界線をrgb(255, 80, 80)に設定 */
+    border: 3px solid rgba(255, 80, 80); /* ヒーローセクションのサブテキストにホバーしたときの境界線をrgb(255, 80, 80)に設定 */
     box-shadow:
-        0 0 10px rgb(255, 80, 80, 0.5),
-        0 0 15px rgb(255, 80, 80, 0.2),
-        0 0 35px rgb(255, 80, 80, 0.1); /* ヒーローセクションのサブテキストにホバーしたときの影をrgb(255, 80, 80)に設定 */
-    background: rgb(255, 80, 80, 0.1); 
+        0 0 10px rgba(255, 80, 80, 0.5),
+        0 0 15px rgba(255, 80, 80, 0.2),
+        0 0 35px rgba(255, 80, 80, 0.1); /* ヒーローセクションのサブテキストにホバーしたときの影をrgb(255, 80, 80)に設定 */
+    background: rgba(255, 80, 80, 0.1); 
 }   
 
 .hero-subtitle{
@@ -165,7 +165,7 @@ body {
     flex-wrap: wrap; /* ヒーローセクションのアイテムが必要に応じて折り返すように設定 */
     gap: 12px; /* ヒーローセクションのアイテムの間隔を12pxに設定 */
     justify-content: space-between; /* ヒーローセクションのアイテムを中央に配置 */
-    color: rgb(255, 237, 40);
+    color: rgba(255, 237, 40);
 }
 
 .hero-items2 {
@@ -174,7 +174,7 @@ body {
     flex-wrap: wrap; /* ヒーローセクションのアイテムが必要に応じて折り返すように設定 */
     gap: 12px; /* ヒーローセクションのアイテムの間隔を12pxに設定 */
     justify-content: space-between; /* ヒーローセクションのアイテムを中央に配置 */
-    color:rgb(255, 143, 24)
+    color:rgba(255, 143, 24)
 }
 
 .hero-items3 {
@@ -183,7 +183,7 @@ body {
     flex-wrap: wrap; /* ヒーローセクションのアイテムが必要に応じて折り返すように設定 */
     gap: 12px; /* ヒーローセクションのアイテムの間隔を12pxに設定 */
     justify-content: space-between; /* ヒーローセクションのアイテムを中央に配置 */
-    color: rgb(255, 80, 80); /* ヒーローセクションのアイテムの文字色をrgb(255, 80, 80)に設定 */
+    color: rgba(255, 80, 80); /* ヒーローセクションのアイテムの文字色をrgb(255, 80, 80)に設定 */
 }   
 
 .skills {
@@ -252,13 +252,8 @@ body {
     letter-spacing: 1px;
 }
 
-.works-title {
-    font-size: 14px;
-    margin-bottom: 8;
-}
-
 .work-desc {
-    font-size: 12;
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.35);
     line-height: 1.7;
     margin-bottom: 14px;
@@ -285,7 +280,7 @@ body {
     border-radius: 8px;
     text-decoration: none;
     font-size: 0.9rem;
-    margin: 6ppx;
+    margin: 6px;
 }
 
 .contact-card p { color: #94a3b8; margin-bottom: 18px; font-size: 0.95rem; }
